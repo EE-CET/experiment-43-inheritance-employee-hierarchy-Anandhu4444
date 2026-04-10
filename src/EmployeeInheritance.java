@@ -20,45 +20,44 @@ class Manager extends Employee {
     String department;
 }
 
-public class Main {
+public class EmployeeInheritance {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            // Read Officer
+            Officer o = new Officer();
+            if (sc.hasNextLine()) o.name = sc.nextLine().trim();
+            if (sc.hasNextLine()) o.age = Integer.parseInt(sc.nextLine().trim());
+            if (sc.hasNextLine()) o.phoneNumber = sc.nextLine().trim();
+            if (sc.hasNextLine()) o.address = sc.nextLine().trim();
+            if (sc.hasNextLine()) o.salary = Double.parseDouble(sc.nextLine().trim());
+            if (sc.hasNextLine()) o.specialization = sc.nextLine().trim();
 
-        // Officer Details
-        Officer officer = new Officer();
-        officer.name = sc.nextLine();
-        officer.age = Integer.parseInt(sc.nextLine());
-        officer.phoneNumber = sc.nextLine();
-        officer.address = sc.nextLine();
-        officer.salary = Double.parseDouble(sc.nextLine());
-        officer.specialization = sc.nextLine();
+            // Read Manager
+            Manager m = new Manager();
+            if (sc.hasNextLine()) m.name = sc.nextLine().trim();
+            if (sc.hasNextLine()) m.age = Integer.parseInt(sc.nextLine().trim());
+            if (sc.hasNextLine()) m.phoneNumber = sc.nextLine().trim();
+            if (sc.hasNextLine()) m.address = sc.nextLine().trim();
+            if (sc.hasNextLine()) m.salary = Double.parseDouble(sc.nextLine().trim());
+            if (sc.hasNextLine()) m.department = sc.nextLine().trim();
 
-        // Manager Details
-        Manager manager = new Manager();
-        manager.name = sc.nextLine();
-        manager.age = Integer.parseInt(sc.nextLine());
-        manager.phoneNumber = sc.nextLine();
-        manager.address = sc.nextLine();
-        manager.salary = Double.parseDouble(sc.nextLine());
-        manager.department = sc.nextLine();
+            // Output Officer
+            System.out.println("Officer:");
+            System.out.println(o.name);
+            System.out.println(o.age);
+            System.out.println(o.phoneNumber);
+            System.out.println(o.address);
+            o.printSalary();
+            System.out.println(o.specialization);
 
-        // Output
-        System.out.println("Officer:");
-        System.out.println(officer.name);
-        System.out.println(officer.age);
-        System.out.println(officer.phoneNumber);
-        System.out.println(officer.address);
-        officer.printSalary();
-        System.out.println(officer.specialization);
-
-        System.out.println("Manager:");
-        System.out.println(manager.name);
-        System.out.println(manager.age);
-        System.out.println(manager.phoneNumber);
-        System.out.println(manager.address);
-        manager.printSalary();
-        System.out.println(manager.department);
-
-        sc.close();
+            // Output Manager
+            System.out.println("Manager:");
+            System.out.println(m.name);
+            System.out.println(m.age);
+            System.out.println(m.phoneNumber);
+            System.out.println(m.address);
+            m.printSalary();
+            System.out.println(m.department);
+        }
     }
 }
